@@ -35,6 +35,19 @@ ead:
    exchange:
      userEvent: ead.userevent
 
+authuser:
+  refreshscope:
+    name: Tiago Held
+
+manegement:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - refresh
+          - health
+
+
 logging:
  level:
    com.ead: TRACE
