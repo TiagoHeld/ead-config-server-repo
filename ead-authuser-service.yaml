@@ -39,7 +39,7 @@ authuser:
   refreshscope:
     name: Tiago Silva
 
-manegement:
+management:
   endpoints:
     web:
       exposure:
