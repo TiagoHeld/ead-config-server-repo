@@ -37,7 +37,7 @@ ead:
 
 authuser:
   refreshscope:
-    name: Tiago Silva
+    name: Tiago Silva Update
 
 management:
   endpoints:
