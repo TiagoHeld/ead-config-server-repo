@@ -1,13 +1,13 @@
 server:
   port: 8082
   servlet:
-    context-path: '/ead-course/'
+    context-path: "/ead-course/"
 
 spring:
   application:
     name: ead-course-service
   datasource:
-    url:  jdbc:postgresql://localhost:5432/ead-course-v2
+    url: jdbc:postgresql://localhost:5432/ead-course-v2
     username: postgres
     password: root
   jpa:
@@ -29,13 +29,16 @@ spring:
 ead:
   api:
     url:
-      authuser: 'http://ead-authuser-service/ead-authuser'
+      authuser: "http://ead-authuser-service/ead-authuser"
   broker:
     exchange:
       userEventExchange: ead.userevent
+      notificationCommandExchange: ead.notificationcommand
     queue:
       userEventQueue:
         name: ead.userevent.ms.course
+    key:
+      notificationCommandKey: ms.notification
 
 management:
   endpoints:
@@ -45,13 +48,9 @@ management:
           - refresh
           - health
 
-
 logging:
   level:
     com.ead: TRACE
     root: INFO
     org.springframework.web: DEBUG
     org.hibernate: INFO
-
-
-
