@@ -26,6 +26,7 @@ spring:
   rabbitmq:
     addresses: amqps://iaopsvsl:XUe8zZ9qTv9qGPzb_GWqhyHNRZfiVNDK@beaver.rmq.cloudamqp.com/iaopsvsl
     publisher-returns: true
+    publisher-confirm-type: correlated
     template:
       mandatory: true
 
