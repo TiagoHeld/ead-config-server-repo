@@ -1,0 +1,53 @@
+server:
+  port: 8084
+  servlet:
+    context-path: "/ead-notification-hex/"
+
+spring:
+  application:
+    name: ead-notification-service-hex
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ead-notification-hex
+    username: postgres
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non-contextual-creation: true
+  output:
+    ansi:
+      enabled: Always
+
+  rabbitmq:
+    addresses: amqps://iaopsvsl:XUe8zZ9qTv9qGPzb_GWqhyHNRZfiVNDK@beaver.rmq.cloudamqp.com/iaopsvsl
+
+logging:
+  level:
+    com.ead: TRACE
+    root: INFO
+    org.springframework.web: DEBUG
+    org.springframework.amqp.rabbit.core.RabbitAdmin: DEBUG
+    org.hibernate: INFO
+
+ead:
+  broker:
+    exchange:
+      notificationCommandExchange: ead.notificationcommand
+    queue:
+      notificationCommandQueue:
+        name: ead.notificationcommand.ms.notification
+    key:
+      notificationCommandKey: ms.notification
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - refresh
+          - health
